@@ -1,34 +1,6 @@
-//   -----------------------------------------------------------------
-//   FETCH JWT TOKEN
-//   -----------------------------------------------------------------
-var token;
 const red = "#dd3333";
 const green = "#4caf50";
 
-$(document).ready(function () {
-  // Fetch token from hash
-  function getHashParam(name) {
-    var hashParams = new URLSearchParams(window.location.hash.substring(1));
-    return hashParams.get(name);
-  }
-
-  token = getHashParam("token"); // store fetched token
-
-  // check if token exists
-  if (token == null || token == "") {
-    window.location.href = "/employeeUI/login/login.html";
-  } else {
-    // console.log("JWT Token:", token);
-    loadEmployees();
-  }
-});
-
-//   -----------------------------------------------------------------
-//   LOGOUT BUTTON
-//   -----------------------------------------------------------------
-function logout() {
-  window.location.href = "/employeeUI/login/login.html";
-}
 //   -----------------------------------------------------------------
 //   FETCH ALL THE EMPLOYEE
 //   -----------------------------------------------------------------
@@ -37,9 +9,6 @@ function loadEmployees() {
     type: "GET",
     url: "http://localhost:8082/api/employee",
     contentType: "application/json",
-    beforeSend: function (xhr) {
-      xhr.setRequestHeader("Authorization", `Bearer ${token}`);
-    },
     success: function (data) {
       var html = "";
       for (var i = 0; i < data.length; i++) {
@@ -94,9 +63,6 @@ function triggerSaveEmployee() {
       status: status,
       salary: salary,
     }),
-    beforeSend: function (xhr) {
-      xhr.setRequestHeader("Authorization", `Bearer ${token}`);
-    },
     success: function () {
       Swal.fire({
         title: "Saved!",
@@ -126,9 +92,6 @@ function triggerEditEmployee(id) {
   $.ajax({
     type: "GET",
     url: "http://localhost:8082/api/employee/" + id,
-    beforeSend: function (xhr) {
-      xhr.setRequestHeader("Authorization", `Bearer ${token}`);
-    },
     success: function (data) {
       $("#editEmployeeName").val(data.name);
       $("#editEmployeeDOJ").val(data.doj);
@@ -168,9 +131,6 @@ function triggerUpdateEmployee(id) {
       status: status,
       salary: salary,
     }),
-    beforeSend: function (xhr) {
-      xhr.setRequestHeader("Authorization", `Bearer ${token}`);
-    },
     success: function () {
       Swal.fire({
         title: "Updated!",
@@ -210,9 +170,6 @@ function triggerDeleteEmployee(id) {
       $.ajax({
         type: "DELETE",
         url: "http://localhost:8082/api/employee/" + id,
-        beforeSend: function (xhr) {
-          xhr.setRequestHeader("Authorization", `Bearer ${token}`);
-        },
         success: function (data) {
           if (data.slice(-10) === "not found!") {
             Swal.fire({
