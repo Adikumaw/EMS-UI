@@ -16,7 +16,7 @@ $(document).ready(function () {
 
   // check if token exists
   if (token == null || token == "") {
-    window.location.href = "/employeeUI/login/login.html";
+    window.location.href = "/login/login.html";
   } else {
     // console.log("JWT Token:", token);
     loadEmployees();
@@ -27,7 +27,7 @@ $(document).ready(function () {
 //   LOGOUT BUTTON
 //   -----------------------------------------------------------------
 function logout() {
-  window.location.href = "/employeeUI/login/login.html";
+  window.location.href = "/login/login.html";
 }
 //   -----------------------------------------------------------------
 //   FETCH ALL THE EMPLOYEE

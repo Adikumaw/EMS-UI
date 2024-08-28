@@ -69,7 +69,7 @@
                 if (xhr.status === 200) { // Check for successful response (code 200)
                     const response = JSON.parse(xhr.responseText);
                     const token = response.jwtToken;
-                    var url = 'https://localhost/employeeUI/#token=' + encodeURIComponent(token);
+                    var url = '/index.html#token=' + encodeURIComponent(token);
                     window.location.href = url;
                 } else {
                     console.error("Error:", xhr.responseText); // Handle errors
