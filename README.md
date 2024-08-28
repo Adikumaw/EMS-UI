@@ -22,7 +22,7 @@ This is the frontend of an Employee Management System built with HTML, CSS, Java
 
 Check out the demo video to see the Employee Management System UI in action:
 
-[![Employee Management System UI Demo](https://github.com/Adikumaw/EMS-UI/blob/master/demo/home.png)](https://github.com/Adikumaw/EMS-UI/blob/master/demo/EMS-clip.mp4)
+https://github.com/user-attachments/assets/ef5ce518-17d7-47e4-a8d1-d0e7bf19e469
 
 ## Screenshots
 
